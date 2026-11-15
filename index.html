@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Discover local women-led businesses and services.">
+  <title>HerLocal | Women-led business directory</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="container nav" aria-label="Main navigation">
+      <a class="brand" href="#home">✿ HerLocal<span class="brand-dot">.</span></a>
+      <div class="nav-links"><a href="#directory">Explore</a><a href="#about">Our mission</a><a href="#submit">List a business</a></div>
+      <a href="#submit" class="button small">Add business</a>
+    </nav>
+  </header>
+  <main id="home">
+    <section class="hero"><div class="container hero-layout"><div>
+      <p class="eyebrow">DISCOVER • CONNECT • SUPPORT</p>
+      <h1>Local businesses.<br><em>Extraordinary women.</em></h1>
+      <p class="hero-copy">Discover independent women-led businesses, explore their services, and make your next purchase matter to your community.</p>
+      <a class="button" href="#directory">Explore businesses →</a>
+      <p class="demo-note">Student project prototype · Sample listings are fictional demonstrations.</p>
+    </div><div class="hero-visual" aria-hidden="true"><span class="hero-symbol">✿</span><div class="hero-sticker">Made with<br>community ♡</div></div></div></section>
+    <section id="directory" class="section container"><div class="section-heading"><div><p class="eyebrow">THE DIRECTORY</p><h2>Find something wonderful</h2><p>Search by name or service, then narrow the results.</p></div><span id="resultCount" class="result-count" aria-live="polite"></span></div>
+      <div class="filters"><label class="sr-only" for="search">Search businesses</label><input id="search" type="search" placeholder="Search by business, product or service…"><label class="sr-only" for="category">Category</label><select id="category"><option value="all">All categories</option></select><label class="sr-only" for="city">City</label><select id="city"><option value="all">All cities</option></select><button class="button secondary" id="clearFilters" type="button">Reset</button></div>
+      <div id="cards" class="card-grid" aria-live="polite"></div><p id="emptyState" class="empty hidden">No matching businesses. Try another search or reset the filters.</p>
+    </section>
+    <section id="about" class="mission"><div class="container mission-grid"><div><p class="eyebrow">WHY HERLOCAL?</p><h2>Visibility creates opportunity.</h2></div><p>Small entrepreneurs can be difficult to find online. This directory brings business information, services and contact details into one searchable place. In a real deployment, owners would need to consent to listing and a trusted administrator would verify their claims.</p></div></section>
+    <section id="submit" class="section container"><div class="section-heading"><div><p class="eyebrow">JOIN THE DIRECTORY</p><h2>Suggest a business</h2><p>For this student demo, suggestions are saved in your browser and require demo-admin approval.</p></div></div>
+      <form id="businessForm" class="form-panel"><div class="form-grid"><label>Business name <input name="name" maxlength="70" required placeholder="e.g., Lotus Crafts"></label><label>Category <select name="category" required><option value="">Choose category</option><option>Handmade</option><option>Food & Beverage</option><option>Clothing</option><option>Beauty & Wellness</option><option>Services</option></select></label><label>City <input name="city" maxlength="50" required placeholder="e.g., Jaipur"></label><label>Contact email <input name="email" type="email" maxlength="100" required placeholder="owner@example.com"></label></div><label>Products or services <textarea name="description" minlength="15" maxlength="300" required rows="3" placeholder="What does this business offer?"></textarea></label><label class="check"><input type="checkbox" name="consent" required> I confirm I have permission to share these business details in this demo.</label><button type="submit" class="button">Submit for review</button><p id="formStatus" role="status"></p></form>
+    </section>
+    <section id="admin" class="section admin-section container"><details><summary>Demo administration — review pending suggestions</summary><p class="demo-note">Learning-only client-side approval. This is not secure authentication or real identity verification.</p><div id="pending"></div></details></section>
+  </main>
+  <footer><div class="container footer-inner"><strong>✿ HerLocal.</strong><span>CA1 student prototype · HTML + CSS + JavaScript</span><a href="#home">Back to top ↑</a></div></footer>
+  <dialog id="businessDialog" aria-labelledby="dialogTitle"><button class="close" id="closeDialog" aria-label="Close details">×</button><div id="dialogBody"></div></dialog>
+</body>
+</html>
