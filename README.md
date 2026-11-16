@@ -1,60 +1,43 @@
-# HerLocal — Local Women Entrepreneurship Directory
+# HerLocal
 
-**University CA1 project · Feature 1: Business Directory & Profiles**
+**Local Women Entrepreneurship Directory**  
+*Academic CA1 web project · HTML, CSS and JavaScript*
 
-This is a small, frontend-only academic demonstration. It has **8 fictional women-led business listings**, a responsive homepage, keyword search, combined category/city filters, product/service previews and an accessible detail dialog.
+HerLocal is a responsive directory concept designed to improve the discoverability of small women-led businesses. It brings business descriptions, locations, products and services into one accessible browsing experience.
 
-**All business names, locations, prices, availability and descriptions are fictional.** The images are illustrative stock photographs and do not depict the stated businesses or imply endorsement. None of the listings is independently verified.
+## Project purpose
 
-## Run locally
+Small local entrepreneurs may face limited online visibility, fragmented business information and difficulty reaching potential customers. HerLocal explores how a simple, searchable directory can connect customers with relevant businesses in their communities.
 
-1. Open the repository folder in VS Code.
-2. Install the optional **Live Server** extension, right-click `index.html`, and select **Open with Live Server**. Alternatively, double-click `index.html` to open it in a modern browser.
-3. Search for `cake`, select `Phagwara`, or filter by `Home & Crafts`.
-4. Click **View profile**; close with **×** or **Escape**.
-5. Test filters together and the empty-results case.
+## Current implementation
 
-## Project files
+- Eight illustrative business profiles across three Punjab cities.
+- Search by business name, category, product or service.
+- Combined category and city filtering.
+- Detailed profiles displaying service area, opening hours, availability and indicative prices.
+- Responsive layout with accessible navigation and a native profile dialog.
 
-| File | Responsibility |
+## Technologies
+
+| Technology | Role |
 | --- | --- |
-| `index.html` | Semantic page structure: navigation, hero, filters, cards container, dialog and footer |
-| `css/style.css` | Layout, colours, typography, responsive rules and hover transitions |
-| `js/data.js` | Fictional example business records; loaded first |
-| `js/app.js` | Create cards, search/filter, open/close profile dialog |
+| HTML5 | Semantic content and page structure |
+| CSS3 | Visual design, layouts and responsiveness |
+| JavaScript | Business rendering, search, filtering and profile interactions |
 
-## How to add a business
+## Project structure
 
-In `js/data.js`, add an object to the `businesses` array with a **unique** `id` and the same properties as the existing objects. The filter category and city dropdown options are built from the data automatically. Prices are numeric `price` values (not `"₹450"` text), or `null` if a quote is needed.
+- `index.html` — homepage, directory and profile dialog
+- `css/style.css` — visual styles and responsive layouts
+- `js/data.js` — demonstration business records
+- `js/app.js` — application interactions
 
-## GitHub Pages deployment (after merging into main)
+## Scope and status
 
-Open repository **Settings → Pages → Build and deployment → Deploy from a branch**. Set **branch** to `main`, **folder** to `/(root)`, then **Save**. Keep the `index.html` file at repository root, and keep `css/style.css`, `js/data.js`, and `js/app.js` as relative paths. Verify the live site on mobile and desktop.
+**Current stage:** Business directory and profiles (Feature 1). Business submission, contact inquiry, verification workflow, reviews and admin moderation are planned but not yet implemented.
 
-## Known limitations and next features
+**Data transparency:** Every listed business, description, price, availability value and operating schedule is fictional. Photographs are illustrative stock imagery; they do not represent real enterprises or independently verified ownership. This static prototype has no authentication, backend or shared database.
 
-- No secure login, shared database, authenticated admin or actual verification.
-- Search/filter/profile are working; registration, inquiry, reviews and admin moderation are **not yet implemented**.
-- Photos load from Pexels CDN and need an internet connection; cards have a gradient background fallback.
-- No real phone number or personal address is provided; do not invent contact information for fictional listings.
+## Image attribution
 
-## Photography credits
-
-Photos are used as **illustrations**, not proof of business ownership or products. Sources, under the [Pexels licence](https://www.pexels.com/license/):
-
-- [Cake and cupcakes](https://www.pexels.com/photo/birthday-cake-and-cupcakes-on-table-7328591/)
-- [Sewing and tailoring](https://www.pexels.com/photo/hands-inserting-the-thread-in-the-needle-6461169/)
-- [Candles](https://www.pexels.com/photo/white-candles-on-the-table-5933781/)
-- [Jewellery](https://www.pexels.com/photo/earrings-beside-a-jewelry-box-5830198/)
-- [Ceramic pottery](https://www.pexels.com/photo/close-up-of-handmade-ceramic-pottery-on-shelf-6611187/)
-- [Makeup](https://www.pexels.com/photo/makeup-brushes-and-palette-8394923/)
-- [Stationery](https://www.pexels.com/photo/composition-of-spiralnotebook-with-pencils-6193138/)
-- [Candle-maker / hero image](https://www.pexels.com/photo/woman-in-an-apron-sitting-at-the-table-with-a-bunch-of-handmade-candles-6755793/)
-
-## Viva practice
-
-- Explain how `index.html` loads the two JavaScript files with `defer`.
-- Explain object vs array; point to one business and its `offerings`.
-- Demonstrate changing a price, adding a business, and filtering by city.
-- Explain `querySelector`, `createElement`, `textContent`, `addEventListener`, `filter`, `replaceChildren`, and `showModal`.
-- Explain why static GitHub Pages cannot offer secure owner accounts or shared moderation alone.
+Illustrative photographs are served from [Pexels](https://www.pexels.com/) under the [Pexels License](https://www.pexels.com/license/). Original photo references are recorded in `js/data.js` through their image URLs.
