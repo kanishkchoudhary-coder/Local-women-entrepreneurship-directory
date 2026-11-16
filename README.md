@@ -1,43 +1,44 @@
 # HerLocal
 
 **Local Women Entrepreneurship Directory**  
-*Academic CA1 web project · HTML, CSS and JavaScript*
+CA1 web development project · HTML, CSS, JavaScript
 
-HerLocal is a responsive directory concept designed to improve the discoverability of small women-led businesses. It brings business descriptions, locations, products and services into one accessible browsing experience.
+HerLocal is a responsive website designed to make women-led local businesses easier to discover. It brings business profiles, categories, locations, products, indicative pricing and availability into a simple browsing experience.
 
-## Project purpose
+## The problem
 
-Small local entrepreneurs may face limited online visibility, fragmented business information and difficulty reaching potential customers. HerLocal explores how a simple, searchable directory can connect customers with relevant businesses in their communities.
+Small businesses can be difficult to find when their information is fragmented across listings and social platforms. HerLocal organizes key details in one searchable directory and provides a structured process for adding and reviewing listings.
 
-## Current implementation
+## Key features
 
-- Eight illustrative business profiles across three Punjab cities.
-- Search by business name, category, product or service.
-- Combined category and city filtering.
-- Detailed profiles displaying service area, opening hours, availability and indicative prices.
-- Responsive layout with accessible navigation and a native profile dialog.
+- Searchable business directory with category and city filters.
+- Detailed business profiles with products, prices, opening hours and availability.
+- Submission form with pending, approved and rejected listing states.
+- Contact inquiry form and local inquiry inbox.
+- Customer feedback, review reporting and moderation workflow.
+- Responsive layout and accessible profile dialogs.
 
-## Technologies
+## Technology
 
-| Technology | Role |
+| Technology | Responsibility |
 | --- | --- |
-| HTML5 | Semantic content and page structure |
-| CSS3 | Visual design, layouts and responsiveness |
-| JavaScript | Business rendering, search, filtering and profile interactions |
+| HTML | Semantic page structure, navigation and forms |
+| CSS | Visual design, responsive layout and interaction states |
+| JavaScript | Directory rendering, filtering, forms, storage and moderation |
 
-## Project structure
+## Project files
 
-- `index.html` — homepage, directory and profile dialog
-- `css/style.css` — visual styles and responsive layouts
-- `js/data.js` — demonstration business records
-- `js/app.js` — application interactions
+- `index.html` — page structure and forms
+- `css/style.css` — visual styles
+- `js/data.js` — illustrative listings and reviews
+- `js/app.js` — website behavior
 
-## Scope and status
+## Data and functionality notes
 
-**Current stage:** Business directory and profiles (Feature 1). Business submission, contact inquiry, verification workflow, reviews and admin moderation are planned but not yet implemented.
+The included business names, product information and reviews are **illustrative sample records**; images are illustrative stock photographs, not representations of actual participating businesses. The website does not independently verify business ownership.
 
-**Data transparency:** Every listed business, description, price, availability value and operating schedule is fictional. Photographs are illustrative stock imagery; they do not represent real enterprises or independently verified ownership. This static prototype has no authentication, backend or shared database.
+Submissions, reviews, inquiries and moderation decisions are saved using browser `localStorage`. Records are **not shared across visitors or devices**, and the inquiry form **does not send messages**. The review workspace is publicly accessible and does not have authenticated access control. These limitations are important when evaluating the current implementation.
 
-## Image attribution
+## Photography
 
-Illustrative photographs are served from [Pexels](https://www.pexels.com/) under the [Pexels License](https://www.pexels.com/license/). Original photo references are recorded in `js/data.js` through their image URLs.
+Illustrative photography is provided via [Pexels](https://www.pexels.com/) subject to the [Pexels License](https://www.pexels.com/license/). Image sources are referenced in the project files.

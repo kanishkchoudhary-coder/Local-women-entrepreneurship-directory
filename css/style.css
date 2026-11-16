@@ -113,3 +113,70 @@ footer { background: var(--plum); color: white; }
   html { scroll-behavior: auto; }
   .business-card { transition: none; }
 }
+
+/* Forms, reviews and the local review workspace. */
+.feature-section, .moderation-section { padding-block: 70px; }
+.feature-section h2, .moderation-section h2 { font: 400 clamp(2.2rem, 4vw, 3.4rem)/1.12 Georgia, serif; margin-bottom: 10px; }
+.section-intro { max-width: 680px; margin-bottom: 28px; color: var(--muted); }
+.moderation-section { border-top: 1px solid var(--line); background: var(--white); }
+.panel { border: 1px solid var(--line); border-radius: 16px; background: white; padding: 24px; }
+.panel h3, .profile-extras h3 { font-size: 1.15rem; margin-bottom: 14px; }
+.form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; align-items: start; }
+.form-grid label { display: grid; gap: 7px; font-size: .87rem; font-weight: 700; }
+.form-grid input:not([type="checkbox"]), .form-grid select, .form-grid textarea {
+  width: 100%; min-width: 0; padding: 11px 13px; border: 1px solid #dbcdd0;
+  border-radius: 10px; color: var(--plum); background: white;
+}
+.form-grid textarea { resize: vertical; }
+.full-width { grid-column: 1 / -1; }
+.form-grid .check-label { display: flex; align-items: flex-start; gap: 10px; font-size: .82rem; font-weight: 400; }
+.check-label input { margin-top: 4px; accent-color: var(--accent); }
+.form-actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.status-note { color: #406c50; font-size: .85rem; margin: 0; }
+.small-note { color: var(--muted); font-size: .85rem; }
+.profile-extras { padding: 0 32px 32px; }
+.profile-extras section { border-top: 1px solid var(--line); padding-top: 23px; margin-top: 24px; }
+.profile-extras .form-grid { gap: 12px; }
+.sample-label { display: inline-block; color: var(--muted); font: 400 .7rem 'Segoe UI', Arial, sans-serif; }
+.contact-link { display: inline-block; color: var(--accent); margin-top: 16px; font-weight: 700; text-decoration: underline; }
+.review-item { border-top: 1px solid var(--line); padding: 12px 0; }
+.review-item p { font-size: .9rem; margin: 6px 0; }
+.review-form { margin-top: 14px; }
+.mini-link { padding: 0; background: none; border: 0; color: var(--accent); text-decoration: underline; font-size: .8rem; }
+.admin-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.inbox-panel { margin-top: 20px; }
+.admin-row { border-top: 1px solid var(--line); padding: 14px 0; overflow-wrap: anywhere; }
+.admin-row strong { font-size: .9rem; }
+.admin-row p { margin: 6px 0; }
+.admin-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.small-button { padding: 7px 12px; color: var(--plum); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; font-size: .83rem; }
+.small-button:hover { border-color: var(--accent); }
+#reset-data { margin-top: 14px; }
+
+@media (max-width: 700px) {
+  .admin-columns, .form-grid { grid-template-columns: 1fr; }
+  .full-width { grid-column: auto; }
+  .profile-extras { padding: 0 22px 24px; }
+  .nav { gap: 10px; flex-wrap: wrap; padding-block: 12px; }
+  .nav-links { flex-wrap: wrap; gap: 12px; }
+  .panel { padding: 18px; }
+}
+
+/* Small interaction details keep the interface polished without extra libraries. */
+.site-header { position: sticky; top: 0; z-index: 5; background: #faf7f2f5; backdrop-filter: blur(12px); }
+.button { transition: background-color .18s ease, transform .18s ease; }
+.button:hover { transform: translateY(-2px); }
+.business-card { box-shadow: 0 3px 16px #4b2f3f08; }
+.workspace-details { border: 1px solid var(--line); border-radius: 18px; background: white; overflow: hidden; }
+.workspace-details > summary { cursor: pointer; display: grid; gap: 8px; padding: 28px; list-style-position: inside; }
+.workspace-heading { font: 400 clamp(1.9rem, 3vw, 2.6rem)/1.15 Georgia, serif; }
+.workspace-hint { color: var(--muted); font-size: .9rem; }
+.workspace-content { border-top: 1px solid var(--line); padding: 26px; }
+.workspace-content .section-intro { margin-top: 0; }
+@media (max-width: 600px) {
+  .workspace-details > summary, .workspace-content { padding: 18px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .button { transition: none; }
+  .button:hover { transform: none; }
+}

@@ -18,7 +18,8 @@
       <a class="brand" href="#top">✳ HerLocal<span>.</span></a>
       <div class="nav-links">
         <a href="#directory">Explore</a>
-        <a href="#about">About</a>
+        <a href="#submit">List business</a>
+        <a href="#moderation">Review workspace</a>
       </div>
     </nav>
   </header>
@@ -30,7 +31,7 @@
         <h1 id="hero-title">Great things grow <em>close to home.</em></h1>
         <p class="intro">Discover thoughtful products and services from women-led businesses in your community.</p>
         <a class="button" href="#directory">Explore businesses ↗</a>
-        <p class="disclaimer">Academic demonstration · Business listings and details are fictional.</p>
+        <p class="disclaimer">Illustrative listings · Created for academic assessment.</p>
       </div>
       <div class="hero-image" role="img" aria-label="Illustrative photograph of handmade candles"></div>
     </section>
@@ -68,18 +69,82 @@
       </div>
     </section>
 
+    <section class="container feature-section" id="submit" aria-labelledby="submit-title">
+      <p class="eyebrow">For local entrepreneurs</p>
+      <h2 id="submit-title">List your <em>business.</em></h2>
+      <p class="section-intro">Add a business profile for review. Approved submissions appear in the directory on this device.</p>
+      <form id="business-form" class="panel form-grid">
+        <label>Business name <input name="name" maxlength="70" required placeholder="Example: Riverside Crafts"></label>
+        <label>Category <select id="submit-category" name="category" required></select></label>
+        <label>City <select id="submit-city" name="city" required></select></label>
+        <label>Locality / service area <input name="area" maxlength="70" required placeholder="Example: Model Town"></label>
+        <label class="full-width">Business description <textarea name="description" maxlength="500" required rows="3" placeholder="What products or services do you offer?"></textarea></label>
+        <label>Primary product or service <input name="offering" maxlength="80" required placeholder="Example: Handmade gift hamper"></label>
+        <label>Starting price in ₹ (optional) <input name="price" type="number" min="0" max="1000000" step="1" placeholder="e.g. 250"></label>
+        <label>Opening hours (optional) <input name="hours" maxlength="80" placeholder="Mon–Sat, 10 AM–6 PM"></label>
+        <label>Availability <select name="availability"><option>Ask for availability</option><option>In stock</option><option>Limited stock</option><option>Made to order</option><option>By appointment</option></select></label>
+        <label class="full-width">Public contact email (optional) <input name="email" type="email" maxlength="120" placeholder="business@example.com"></label>
+        <label class="check-label full-width"><input type="checkbox" required> I will enter sample information only. Submissions are saved in this browser, not shared with other visitors.</label>
+        <div class="full-width form-actions"><button class="button" type="submit">Submit for review</button><p class="status-note" id="submission-status" role="status" aria-live="polite"></p></div>
+      </form>
+    </section>
+
+    <section class="moderation-section" id="moderation" aria-labelledby="moderation-title">
+      <div class="container">
+        <details class="workspace-details">
+          <summary>
+            <span class="eyebrow">Directory management</span>
+            <span class="workspace-heading" id="moderation-title">Review workspace</span>
+            <span class="workspace-hint">Manage business submissions, feedback and saved inquiries <span aria-hidden="true">↗</span></span>
+          </summary>
+          <div class="workspace-content">
+            <p class="section-intro">Records are saved in this browser only. This workspace is publicly accessible; it does not provide authenticated administrator access.</p>
+            <div class="admin-columns">
+              <div class="panel"><h3>Business submissions</h3><div id="admin-businesses"></div></div>
+              <div class="panel"><h3>Review moderation</h3><div id="admin-reviews"></div></div>
+            </div>
+            <div class="panel inbox-panel"><h3>Inquiry inbox</h3><div id="admin-inquiries"></div></div>
+            <button type="button" id="reset-data" class="clear-button">Clear local records</button>
+          </div>
+        </details>
+      </div>
+    </section>
+
     <section class="container about" id="about">
       <h2>Every local story <em>deserves to be found.</em></h2>
-      <p>HerLocal is an academic prototype exploring how a directory can make women-led businesses easier to discover. All current listings use fictional data and illustrative images.</p>
+      <p>HerLocal brings local business information into one searchable place. Featured listings and their images are illustrative examples created for academic assessment.</p>
     </section>
   </main>
 
-  <footer><div class="container footer-content"><strong>✳ HerLocal.</strong><span>Made for discovery · Academic prototype © 2026</span></div></footer>
+  <footer><div class="container footer-content"><strong>✳ HerLocal.</strong><span>Women-led business discovery · © 2026</span></div></footer>
 
   <!-- A native dialog supports keyboard focus and Escape-to-close behavior. -->
   <dialog id="profile-dialog" aria-labelledby="profile-title">
     <button class="dialog-close" id="close-dialog" type="button" aria-label="Close profile">×</button>
     <div id="profile-content"></div>
+    <div class="profile-extras">
+      <section aria-labelledby="inquiry-heading">
+        <h3 id="inquiry-heading">Contact inquiry</h3>
+        <p class="small-note">Your inquiry is saved in this browser only. It is <strong>not delivered</strong> to a business.</p>
+        <form id="inquiry-form" class="form-grid">
+          <label>Display name <input name="name" maxlength="60" required placeholder="Your name"></label>
+          <label>Email (optional) <input name="email" type="email" maxlength="120" placeholder="you@example.com"></label>
+          <label class="full-width">Message <textarea name="message" rows="3" maxlength="600" required placeholder="I'd like to know more about..."></textarea></label>
+          <div class="full-width form-actions"><button class="button" type="submit">Save inquiry</button><span id="inquiry-status" class="status-note" role="status"></span></div>
+        </form>
+      </section>
+      <section aria-labelledby="reviews-heading">
+        <h3 id="reviews-heading">Customer feedback <span class="sample-label">Illustrative reviews</span></h3>
+        <p class="small-note">The initial reviews are illustrative examples, not verified customer experiences.</p>
+        <div id="reviews-list"></div>
+        <form id="review-form" class="form-grid review-form">
+          <label>Display name <input name="name" maxlength="60" required placeholder="Your name"></label>
+          <label>Rating <select name="rating" required><option value="">Choose a rating</option><option value="5">5 — Excellent</option><option value="4">4 — Good</option><option value="3">3 — Average</option><option value="2">2 — Below average</option><option value="1">1 — Poor</option></select></label>
+          <label class="full-width">Review <textarea name="message" rows="3" maxlength="400" required placeholder="Write your feedback"></textarea></label>
+          <div class="full-width form-actions"><button class="button" type="submit">Submit review</button><span id="review-status" class="status-note" role="status"></span></div>
+        </form>
+      </section>
+    </div>
   </dialog>
 </body>
 </html>

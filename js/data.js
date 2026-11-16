@@ -1,4 +1,4 @@
-// Fictional listings for an academic demonstration — NOT real or verified businesses.
+// Illustrative business listings for academic assessment; no real businesses are represented.
 // Replace with authorized real business data only after permission and verification.
 const businesses = [
   {
@@ -57,4 +57,12 @@ const businesses = [
     hours: "Mon–Sat · 10:00 AM–5:00 PM", availability: "Accepting orders", updated: "Nov 2026",
     offerings: [{ name: "Gift hamper", price: 599 }, { name: "Handmade decor", price: 249 }, { name: "Custom gift box", price: null }]
   }
+];
+
+// Public examples for testing feedback. These are not real customer testimonials.
+const sampleReviews = [
+  { id: "sample-1", businessId: "biz-001", name: "Reviewer A", rating: 5, message: "The cake options are easy to compare. Including portion sizes would make choosing even easier." },
+  { id: "sample-2", businessId: "biz-001", name: "Reviewer B", rating: 3, message: "The selection looks thoughtful, although clearer lead times would help with planning." },
+  { id: "sample-3", businessId: "biz-002", name: "Reviewer C", rating: 4, message: "The alteration services are explained clearly. A size guide would be useful." },
+  { id: "sample-4", businessId: "biz-008", name: "Reviewer D", rating: 4, message: "The gift sets are organized well across different price ranges." }
 ];
