@@ -1,0 +1,20 @@
+HerLocal illustrative photography (Pexels License)
+
+Three page-hero photos:
+  visitor-hero.jpg — Vlada Karpovich — https://www.pexels.com/photo/6755627/
+  owner-hero.jpg — Kampus Production — https://www.pexels.com/photo/7857530/
+  admin-hero.jpg — Jakub Zerdzicki — https://www.pexels.com/photo/34147402/
+
+Eight sample-business photographs (photographers credited on the original photo pages):
+  businesses/bakery.jpg — Sweet Bloom Bakery — https://www.pexels.com/photo/7328591/
+  businesses/fashion.jpg — Asha Threads — https://www.pexels.com/photo/6461169/
+  businesses/candles.jpg — Little Flame Studio — https://www.pexels.com/photo/5933781/
+  businesses/jewellery.jpg — Noor Beads & Co. — https://www.pexels.com/photo/5830198/
+  businesses/ceramics.jpg — Earth & Ember Ceramics — https://www.pexels.com/photo/6611187/
+  businesses/beauty.jpg — Glow Ritual Studio — https://www.pexels.com/photo/8394923/
+  businesses/education.jpg — Bright Steps Learning — https://www.pexels.com/photo/6193138/
+  businesses/handmade-gifts.jpg — Crafted By Mira — https://www.pexels.com/photo/6755793/
+
+Licence: https://www.pexels.com/license/
+These are illustrative photographs of products/workspaces. They are NOT photos of real HerLocal-listed businesses, owners or verified products.
+Use python download_images.py to save the eleven files locally, or download them manually from Pexels.
