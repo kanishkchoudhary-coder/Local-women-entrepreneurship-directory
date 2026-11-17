@@ -37,6 +37,34 @@ const publishedBusinesses = () => [...businesses, ...records.applications.filter
 const allReviews = () => [...sampleReviews, ...records.reviews];
 const newId = prefix => `${prefix}-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`;
 
+// Use existing, category-relevant photographs for owner-submitted businesses.
+// The business name selects a consistent image when a category has several options.
+function categoryImage(category, name = "") {
+  const images = businesses.filter(b => b.category === category).map(b => b.image);
+  if (!images.length) return businesses[0].image;
+  const index = [...name].reduce((sum, char) => sum + char.charCodeAt(0), 0) % images.length;
+  return images[index];
+}
+
+// Apply the category image to previously saved submissions as well, even if
+// those older records still contain the former one-size-fits-all image URL.
+function businessImage(business) {
+  return businesses.some(b => b.id === business.id)
+    ? business.image
+    : categoryImage(business.category, business.name);
+}
+
+// Prefer committed local photos; use original Pexels URLs only when an image
+// file has not been downloaded yet. Avoid broken image icons on the directory.
+function setBusinessPhoto(photo, business) {
+  const source = businesses.find(b => b.image === businessImage(business)) || businesses[0];
+  photo.onerror = () => {
+    photo.onerror = null;
+    photo.src = source.imageFallback;
+  };
+  photo.src = source.image;
+}
+
 function fillSelect(select, values, allLabel) {
   const previous = select.value;
   select.replaceChildren();
@@ -47,15 +75,17 @@ function fillSelect(select, values, allLabel) {
 function refreshSelects() {
   const listings = publishedBusinesses();
   for (const field of ["category", "city"]) {
-    const values = listings.map(item => item[field]);
-    fillSelect($("#" + field), values, `All ${field === "city" ? "cities" : "categories"}`);
-    fillSelect($("#submit-" + field), businesses.map(item => item[field]));
+    const select = $("#" + field);
+    const submitSelect = $("#submit-" + field);
+    if (select) fillSelect(select, listings.map(item => item[field]),
+      `All ${field === "city" ? "cities" : "categories"}`);
+    if (submitSelect) fillSelect(submitSelect, businesses.map(item => item[field]));
   }
 }
 function card(business) {
   const wrapper = el("article", "business-card");
   const photo = el("img", "card-image");
-  photo.src = business.image;
+  setBusinessPhoto(photo, business);
   photo.alt = `Illustrative ${business.category} photo`;
   photo.loading = "lazy";
   const body = el("div", "card-content");
@@ -89,7 +119,7 @@ function openProfile(business) {
   activeBusiness = business;
   const content = el("div");
   const photo = el("img", "profile-photo");
-  photo.src = business.image;
+  setBusinessPhoto(photo, business);
   photo.alt = `Illustrative ${business.category} photo`;
   const body = el("div", "profile-body");
   const title = el("h2", "", business.name);
@@ -137,23 +167,20 @@ function renderProfileReviews() {
       el("p", "", review.message),
       button("Report", () => {
         if (!records.reportedReviews.includes(review.id)) records.reportedReviews.push(review.id);
-        if (saveRecords()) { renderWorkspace(); alert("Review reported for moderation in this browser."); }
+        if (saveRecords()) alert("Review reported for moderation in this browser.");
       }, "mini-link"));
     list.append(item);
   });
 }
 
-$("#business-form").addEventListener("submit", event => {
+$("#business-form")?.addEventListener("submit", event => {
   event.preventDefault();
   const f = new FormData(event.currentTarget);
   const name = f.get("name").trim();
   const business = {
     id: newId("biz"), name, category: f.get("category"), city: f.get("city"), area: f.get("area").trim(),
     tagline: f.get("offering").trim(), description: f.get("description").trim(),
-    
-image: businesses.find(b => b.category === f.get("category"))?.image
-       || businesses[0].image,
-
+    image: categoryImage(f.get("category"), name),
     hours: f.get("hours").trim() || "Ask the business", availability: f.get("availability"),
     email: f.get("email").trim(), status: "pending",
     offerings: [{ name: f.get("offering").trim(), price: f.get("price") === "" ? null : Number(f.get("price")) }]
@@ -166,11 +193,10 @@ image: businesses.find(b => b.category === f.get("category"))?.image
   if (saveRecords()) {
     event.currentTarget.reset();
     $("#submission-status").textContent = `"${name}" has been submitted for review. It is not visible in the directory yet.`;
-    renderWorkspace();
   }
 });
 
-$("#inquiry-form").addEventListener("submit", event => {
+$("#inquiry-form")?.addEventListener("submit", event => {
   event.preventDefault();
   const f = new FormData(event.currentTarget);
   records.inquiries.unshift({ id: newId("inq"), businessId: activeBusiness.id,
@@ -178,11 +204,10 @@ $("#inquiry-form").addEventListener("submit", event => {
   if (saveRecords()) {
     event.currentTarget.reset();
     $("#inquiry-status").textContent = "Inquiry saved on this device. It has not been sent to the business.";
-    renderWorkspace();
   }
 });
 
-$("#review-form").addEventListener("submit", event => {
+$("#review-form")?.addEventListener("submit", event => {
   event.preventDefault();
   const f = new FormData(event.currentTarget);
   records.reviews.push({ id: newId("rev"), businessId: activeBusiness.id, name: f.get("name").trim(),
@@ -190,7 +215,6 @@ $("#review-form").addEventListener("submit", event => {
   if (saveRecords()) {
     event.currentTarget.reset();
     $("#review-status").textContent = "Review submitted for approval; it is not public yet.";
-    renderWorkspace();
   }
 });
 
@@ -247,7 +271,7 @@ function renderWorkspace() {
 }
 function setBusinessStatus(business, status) {
   business.status = status;
-  if (saveRecords()) { refreshSelects(); renderDirectory(); renderWorkspace(); }
+  if (saveRecords()) renderWorkspace();
 }
 function setReviewStatus(review, status) {
   review.status = status;
@@ -260,18 +284,24 @@ function toggleHidden(id, hidden) {
   if (saveRecords()) { renderWorkspace(); if (activeBusiness && dialog.open) renderProfileReviews(); }
 }
 
-$("#search").addEventListener("input", renderDirectory);
-$("#category").addEventListener("change", renderDirectory);
-$("#city").addEventListener("change", renderDirectory);
-$("#filters").addEventListener("submit", event => event.preventDefault());
-$("#clear").addEventListener("click", resetFilters);
-$("#empty-reset").addEventListener("click", resetFilters);
-$("#close-dialog").addEventListener("click", () => dialog.close());
-$("#reset-data").addEventListener("click", () => {
-  if (!confirm("Delete all locally saved submissions, reviews, reports and inquiries?")) return;
-  records = emptyRecords();
-  if (saveRecords()) { refreshSelects(); renderDirectory(); renderWorkspace(); }
-});
+// Only initialize controls belonging to the current page.
+// The same storage key lets pages share records within one browser.
 refreshSelects();
-renderDirectory();
-renderWorkspace();
+if (document.body.dataset.page === "visitor") {
+  $("#search").addEventListener("input", renderDirectory);
+  $("#category").addEventListener("change", renderDirectory);
+  $("#city").addEventListener("change", renderDirectory);
+  $("#filters").addEventListener("submit", event => event.preventDefault());
+  $("#clear").addEventListener("click", resetFilters);
+  $("#empty-reset").addEventListener("click", resetFilters);
+  $("#close-dialog").addEventListener("click", () => dialog.close());
+  renderDirectory();
+}
+if (document.body.dataset.page === "admin") {
+  $("#reset-data").addEventListener("click", () => {
+    if (!confirm("Delete all locally saved submissions, reviews, reports and inquiries?")) return;
+    records = emptyRecords();
+    if (saveRecords()) renderWorkspace();
+  });
+  renderWorkspace();
+}

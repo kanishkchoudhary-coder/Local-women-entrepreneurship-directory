@@ -1,44 +1,44 @@
 # HerLocal
 
 **Local Women Entrepreneurship Directory**  
-CA1 web development project · HTML, CSS, JavaScript
+Academic web development project · HTML, CSS and JavaScript
 
-HerLocal is a responsive website designed to make women-led local businesses easier to discover. It brings business profiles, categories, locations, products, indicative pricing and availability into a simple browsing experience.
+HerLocal helps visitors discover women-led businesses through organized profiles, offerings, location filters and customer feedback. The website separates browsing, business submissions and listing moderation into focused pages while sharing a consistent interface.
 
-## The problem
+## Purpose
 
-Small businesses can be difficult to find when their information is fragmented across listings and social platforms. HerLocal organizes key details in one searchable directory and provides a structured process for adding and reviewing listings.
+Small enterprises may have limited visibility and scattered information. HerLocal brings relevant details together to help visitors discover products and services, compare prices, find contact information and explore nearby businesses.
 
-## Key features
+## Features
 
-- Searchable business directory with category and city filters.
-- Detailed business profiles with products, prices, opening hours and availability.
-- Submission form with pending, approved and rejected listing states.
-- Contact inquiry form and local inquiry inbox.
-- Customer feedback, review reporting and moderation workflow.
-- Responsive layout and accessible profile dialogs.
+- **Explore (`index.html`)** — Directory, search, category and city filters, business profiles, inquiries and feedback.
+- **List a Business (`owner.html`)** — Profile form with products, starting prices, operating hours and submission for review.
+- **Review Workspace (`admin.html`)** — Approve or reject business applications, moderate reviews, and inspect saved inquiries.
+- **Responsive design** — Shared styling, accessible forms and dialogs, and restrained motion.
+- **Category-based imagery** — New and previously saved submissions display illustrative photos matching their category, drawn from the existing example records.
 
-## Technology
+## Technologies
 
-| Technology | Responsibility |
+| Technology | Purpose |
 | --- | --- |
-| HTML | Semantic page structure, navigation and forms |
-| CSS | Visual design, responsive layout and interaction states |
-| JavaScript | Directory rendering, filtering, forms, storage and moderation |
+| HTML5 | Page structure, accessible content and forms |
+| CSS3 | Responsive layout, typography, photographs and interaction states |
+| JavaScript | Listings, search, validation and moderation workflows |
+| Browser localStorage | Persistence within a single browser |
 
-## Project files
+## Source organization
 
-- `index.html` — page structure and forms
-- `css/style.css` — visual styles
-- `js/data.js` — illustrative listings and reviews
-- `js/app.js` — website behavior
+- `index.html`, `owner.html`, `admin.html` — Separate page experiences
+- `css/style.css` — Shared design system
+- `js/data.js` — Illustrative directory records and example feedback
+- `js/app.js` — Shared application logic with page-specific initialization
 
-## Data and functionality notes
+## Data and access limitations
 
-The included business names, product information and reviews are **illustrative sample records**; images are illustrative stock photographs, not representations of actual participating businesses. The website does not independently verify business ownership.
+Featured business names, offerings, prices, reviews and photographs are illustrative examples. They do not represent independently verified participating businesses. The website has no shared backend, account authentication or government-identity verification.
 
-Submissions, reviews, inquiries and moderation decisions are saved using browser `localStorage`. Records are **not shared across visitors or devices**, and the inquiry form **does not send messages**. The review workspace is publicly accessible and does not have authenticated access control. These limitations are important when evaluating the current implementation.
+Submitted businesses, feedback, inquiries and moderation decisions are stored **only in the current browser**. They are not synchronized between visitors or devices, and saved inquiries are not delivered to business owners. The Review Workspace is openly accessible and does not provide secure administrator authorization.
 
 ## Photography
 
-Illustrative photography is provided via [Pexels](https://www.pexels.com/) subject to the [Pexels License](https://www.pexels.com/license/). Image sources are referenced in the project files.
+Business-card and page-header images use illustrative Pexels photography, not photos of verified HerLocal businesses. The eleven source links and available credits are documented in `assets/images/IMAGE_SOURCES.txt`; the images can be stored locally within `assets/images/` to keep the published site independent of third-party image delivery. The business cards retain their original online image URLs as fallbacks.

@@ -10,16 +10,16 @@
   <script src="js/data.js" defer></script>
   <script src="js/app.js" defer></script>
 </head>
-<body>
+<body data-page="visitor">
   <a class="skip-link" href="#directory">Skip to businesses</a>
 
   <header class="site-header">
     <nav class="container nav" aria-label="Main navigation">
       <a class="brand" href="#top">✳ HerLocal<span>.</span></a>
       <div class="nav-links">
-        <a href="#directory">Explore</a>
-        <a href="#submit">List business</a>
-        <a href="#moderation">Review workspace</a>
+        <a class="is-current" aria-current="page" href="index.html#directory">Explore</a>
+        <a href="owner.html">List business</a>
+        <a href="admin.html">Review workspace</a>
       </div>
     </nav>
   </header>
@@ -31,7 +31,7 @@
         <h1 id="hero-title">Great things grow <em>close to home.</em></h1>
         <p class="intro">Discover thoughtful products and services from women-led businesses in your community.</p>
         <a class="button" href="#directory">Explore businesses ↗</a>
-        <p class="disclaimer">Illustrative listings · Created for academic assessment.</p>
+        <p class="disclaimer">Curated inspiration · Listings are illustrative examples.</p>
       </div>
       <div class="hero-image" role="img" aria-label="Illustrative photograph of handmade candles"></div>
     </section>
@@ -69,46 +69,7 @@
       </div>
     </section>
 
-    <section class="container feature-section" id="submit" aria-labelledby="submit-title">
-      <p class="eyebrow">For local entrepreneurs</p>
-      <h2 id="submit-title">List your <em>business.</em></h2>
-      <p class="section-intro">Add a business profile for review. Approved submissions appear in the directory on this device.</p>
-      <form id="business-form" class="panel form-grid">
-        <label>Business name <input name="name" maxlength="70" required placeholder="Example: Riverside Crafts"></label>
-        <label>Category <select id="submit-category" name="category" required></select></label>
-        <label>City <select id="submit-city" name="city" required></select></label>
-        <label>Locality / service area <input name="area" maxlength="70" required placeholder="Example: Model Town"></label>
-        <label class="full-width">Business description <textarea name="description" maxlength="500" required rows="3" placeholder="What products or services do you offer?"></textarea></label>
-        <label>Primary product or service <input name="offering" maxlength="80" required placeholder="Example: Handmade gift hamper"></label>
-        <label>Starting price in ₹ (optional) <input name="price" type="number" min="0" max="1000000" step="1" placeholder="e.g. 250"></label>
-        <label>Opening hours (optional) <input name="hours" maxlength="80" placeholder="Mon–Sat, 10 AM–6 PM"></label>
-        <label>Availability <select name="availability"><option>Ask for availability</option><option>In stock</option><option>Limited stock</option><option>Made to order</option><option>By appointment</option></select></label>
-        <label class="full-width">Public contact email (optional) <input name="email" type="email" maxlength="120" placeholder="business@example.com"></label>
-        <label class="check-label full-width"><input type="checkbox" required> I will enter sample information only. Submissions are saved in this browser, not shared with other visitors.</label>
-        <div class="full-width form-actions"><button class="button" type="submit">Submit for review</button><p class="status-note" id="submission-status" role="status" aria-live="polite"></p></div>
-      </form>
-    </section>
 
-    <section class="moderation-section" id="moderation" aria-labelledby="moderation-title">
-      <div class="container">
-        <details class="workspace-details">
-          <summary>
-            <span class="eyebrow">Directory management</span>
-            <span class="workspace-heading" id="moderation-title">Review workspace</span>
-            <span class="workspace-hint">Manage business submissions, feedback and saved inquiries <span aria-hidden="true">↗</span></span>
-          </summary>
-          <div class="workspace-content">
-            <p class="section-intro">Records are saved in this browser only. This workspace is publicly accessible; it does not provide authenticated administrator access.</p>
-            <div class="admin-columns">
-              <div class="panel"><h3>Business submissions</h3><div id="admin-businesses"></div></div>
-              <div class="panel"><h3>Review moderation</h3><div id="admin-reviews"></div></div>
-            </div>
-            <div class="panel inbox-panel"><h3>Inquiry inbox</h3><div id="admin-inquiries"></div></div>
-            <button type="button" id="reset-data" class="clear-button">Clear local records</button>
-          </div>
-        </details>
-      </div>
-    </section>
 
     <section class="container about" id="about">
       <h2>Every local story <em>deserves to be found.</em></h2>
