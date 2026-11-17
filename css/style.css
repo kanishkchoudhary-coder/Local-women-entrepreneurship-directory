@@ -40,7 +40,7 @@ h1 { max-width: 650px; font-size: clamp(3rem, 6vw, 5.4rem); margin: 15px 0 20px;
 .hero-image {
   min-height: 460px; border-radius: 220px 220px 18px 18px;
   background-color: #e6d8d2;
-  background-image: url("../assets/images/visitor-hero.jpg"), url("https://images.pexels.com/photos/6755627/pexels-photo-6755627.jpeg?auto=compress&cs=tinysrgb&w=1200");
+  background-image: url("../assets/images/visitor-hero.jpg?v=20261117-asset-fix");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -192,10 +192,10 @@ footer { background: var(--plum); color: white; }
 .page-intro-copy { padding-block: 35px; }
 .page-intro-photo { height: 350px; border-radius: 150px 150px 18px 18px; background-color: #e5d6cf; background-position: center; background-repeat: no-repeat; background-size: cover; }
 .owner-photo {
-  background-image: url("../assets/images/owner-hero.jpg"), url("https://images.pexels.com/photos/7857530/pexels-photo-7857530.jpeg?auto=compress&cs=tinysrgb&w=1200");
+  background-image: url("../assets/images/owner-hero.jpg?v=20261117-asset-fix");
 }
 .admin-photo {
-  background-image: url("../assets/images/admin-hero.jpg"), url("https://images.pexels.com/photos/34147402/pexels-photo-34147402.jpeg?auto=compress&cs=tinysrgb&w=1200");
+  background-image: url("../assets/images/admin-hero.jpg?v=20261117-asset-fix");
 }
 .admin-intro .page-intro-photo { height: 250px; border-radius: 18px; background-position: center 45%; }
 .text-link { display: inline-block; margin-top: 14px; border-bottom: 1px solid var(--accent); padding-bottom: 4px; color: var(--accent); font-weight: 700; }
