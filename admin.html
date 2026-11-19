@@ -1,53 +1,95 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Review business applications and feedback on HerLocal.">
-  <title>Review workspace | HerLocal</title>
-  <link rel="stylesheet" href="css/style.css">
-  <script src="js/data.js" defer></script>
-  <script src="js/app.js" defer></script>
-</head>
-<body data-page="admin">
-  <header class="site-header">
-    <nav class="container nav" aria-label="Main navigation">
-      <a class="brand" href="index.html">✳ HerLocal<span>.</span></a>
-      <div class="nav-links">
-        <a href="index.html#directory">Explore</a>
-        <a href="owner.html">List business</a>
-        <a class="is-current" aria-current="page" href="admin.html">Review workspace</a>
-      </div>
-    </nav>
-  </header>
-<main>
-    <section class="container page-intro admin-intro" aria-labelledby="admin-page-title">
-      <div class="page-intro-copy">
-        <p class="eyebrow">Directory management</p>
-        <h1 id="admin-page-title">Thoughtful curation, <em>clear decisions.</em></h1>
-        <p class="intro">Review business applications, customer feedback and inquiries from one organized workspace.</p>
-      </div>
-      <div class="page-intro-photo admin-photo" role="img" aria-label="Illustrative photograph of an organized desk and laptop"></div>
-    </section>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Review business applications and feedback on HerLocal."
+    />
+    <title>Review workspace | HerLocal</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/data.js" defer></script>
+    <script src="js/app.js" defer></script>
+  </head>
+  <body data-page="admin">
+    <header class="site-header">
+      <nav class="container nav" aria-label="Main navigation">
+        <a class="brand" href="index.html">✳ HerLocal<span>.</span></a>
+        <div class="nav-links">
+          <a href="index.html#directory">Explore</a>
+          <a href="owner.html">List business</a>
+          <a class="is-current" aria-current="page" href="admin.html"
+            >Review workspace</a
+          >
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section
+        class="container page-intro admin-intro"
+        aria-labelledby="admin-page-title"
+      >
+        <div class="page-intro-copy">
+          <p class="eyebrow">Directory management</p>
+          <h1 id="admin-page-title">
+            Thoughtful curation, <em>clear decisions.</em>
+          </h1>
+          <p class="intro">
+            Review business applications, customer feedback and inquiries from
+            one organized workspace.
+          </p>
+        </div>
+        <div
+          class="page-intro-photo admin-photo"
+          role="img"
+          aria-label="Illustrative photograph of an organized desk and laptop"
+        ></div>
+      </section>
 
-    <section class="moderation-section" id="moderation" aria-labelledby="moderation-title">
-      <div class="container">
-        <div class="workspace-details" aria-labelledby="moderation-title">
-          <div class="workspace-content">
-            <h2 id="moderation-title" class="workspace-heading">Review workspace</h2>
-            <p class="section-intro">This page manages records stored in your current browser. It is not password-protected, and its changes are not shared across devices.</p>
-            <div class="admin-columns">
-              <div class="panel"><h3>Business submissions</h3><div id="admin-businesses"></div></div>
-              <div class="panel"><h3>Review moderation</h3><div id="admin-reviews"></div></div>
+      <section
+        class="moderation-section"
+        id="moderation"
+        aria-labelledby="moderation-title"
+      >
+        <div class="container">
+          <div class="workspace-details" aria-labelledby="moderation-title">
+            <div class="workspace-content">
+              <h2 id="moderation-title" class="workspace-heading">
+                Review workspace
+              </h2>
+              <p class="section-intro">
+                This page manages records stored in your current browser. It is
+                not password-protected, and its changes are not shared across
+                devices.
+              </p>
+              <div class="admin-columns">
+                <div class="panel">
+                  <h3>Business submissions</h3>
+                  <div id="admin-businesses"></div>
+                </div>
+                <div class="panel">
+                  <h3>Review moderation</h3>
+                  <div id="admin-reviews"></div>
+                </div>
+              </div>
+              <div class="panel inbox-panel">
+                <h3>Inquiry inbox</h3>
+                <div id="admin-inquiries"></div>
+              </div>
+              <button type="button" id="reset-data" class="clear-button">
+                Clear local records
+              </button>
             </div>
-            <div class="panel inbox-panel"><h3>Inquiry inbox</h3><div id="admin-inquiries"></div></div>
-            <button type="button" id="reset-data" class="clear-button">Clear local records</button>
           </div>
         </div>
+      </section>
+    </main>
+    <footer>
+      <div class="container footer-content">
+        <strong>✳ HerLocal.</strong
+        ><span>Women-led business discovery · © 2026</span>
       </div>
-    </section>
-
-</main>
-  <footer><div class="container footer-content"><strong>✳ HerLocal.</strong><span>Women-led business discovery · © 2026</span></div></footer>
-</body>
+    </footer>
+  </body>
 </html>

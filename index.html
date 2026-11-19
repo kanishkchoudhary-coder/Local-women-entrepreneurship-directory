@@ -1,111 +1,228 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Discover local women-led businesses with HerLocal.">
-  <title>HerLocal | Discover local businesses</title>
-  <link rel="stylesheet" href="css/style.css">
-  <!-- Data loads before the app because the app reads the businesses array. -->
-  <script src="js/data.js" defer></script>
-  <script src="js/app.js" defer></script>
-</head>
-<body data-page="visitor">
-  <a class="skip-link" href="#directory">Skip to businesses</a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Discover local women-led businesses with HerLocal."
+    />
+    <title>HerLocal | Discover local businesses</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- Data loads before the app because the app reads the businesses array. -->
+    <script src="js/data.js" defer></script>
+    <script src="js/app.js" defer></script>
+  </head>
+  <body data-page="visitor">
+    <a class="skip-link" href="#directory">Skip to businesses</a>
 
-  <header class="site-header">
-    <nav class="container nav" aria-label="Main navigation">
-      <a class="brand" href="#top">✳ HerLocal<span>.</span></a>
-      <div class="nav-links">
-        <a class="is-current" aria-current="page" href="index.html#directory">Explore</a>
-        <a href="owner.html">List business</a>
-        <a href="admin.html">Review workspace</a>
-      </div>
-    </nav>
-  </header>
+    <header class="site-header">
+      <nav class="container nav" aria-label="Main navigation">
+        <a class="brand" href="#top">✳ HerLocal<span>.</span></a>
+        <div class="nav-links">
+          <a class="is-current" aria-current="page" href="index.html#directory"
+            >Explore</a
+          >
+          <a href="owner.html">List business</a>
+          <a href="admin.html">Review workspace</a>
+        </div>
+      </nav>
+    </header>
 
-  <main id="top">
-    <section class="container hero" aria-labelledby="hero-title">
-      <div>
-        <p class="eyebrow">Local talent. Meaningful connections.</p>
-        <h1 id="hero-title">Great things grow <em>close to home.</em></h1>
-        <p class="intro">Discover thoughtful products and services from women-led businesses in your community.</p>
-        <a class="button" href="#directory">Explore businesses ↗</a>
-        <p class="disclaimer">Curated inspiration · Listings are illustrative examples.</p>
-      </div>
-      <div class="hero-image" role="img" aria-label="Illustrative photograph of handmade candles"></div>
-    </section>
+    <main id="top">
+      <section class="container hero" aria-labelledby="hero-title">
+        <div>
+          <p class="eyebrow">Local talent. Meaningful connections.</p>
+          <h1 id="hero-title">Great things grow <em>close to home.</em></h1>
+          <p class="intro">
+            Discover thoughtful products and services from women-led businesses
+            in your community.
+          </p>
+          <a class="button" href="#directory">Explore businesses ↗</a>
+          <p class="disclaimer">
+            Curated inspiration · Listings are illustrative examples.
+          </p>
+        </div>
+        <div
+          class="hero-image"
+          role="img"
+          aria-label="Illustrative photograph of handmade candles"
+        ></div>
+      </section>
 
-    <section class="directory-section" id="directory" aria-labelledby="directory-title">
-      <div class="container">
-        <p class="eyebrow">Explore the directory</p>
-        <div class="section-heading">
-          <div>
-            <h2 id="directory-title">Find your <em>local favourite.</em></h2>
-            <p>Browse small businesses by name, product, category or city.</p>
+      <section
+        class="directory-section"
+        id="directory"
+        aria-labelledby="directory-title"
+      >
+        <div class="container">
+          <p class="eyebrow">Explore the directory</p>
+          <div class="section-heading">
+            <div>
+              <h2 id="directory-title">Find your <em>local favourite.</em></h2>
+              <p>Browse small businesses by name, product, category or city.</p>
+            </div>
+            <p id="results-count" role="status" aria-live="polite"></p>
           </div>
-          <p id="results-count" role="status" aria-live="polite"></p>
-        </div>
 
-        <form class="filters" id="filters" role="search">
-          <label>Search
-            <input type="search" id="search" placeholder="Cakes, tailoring, pottery…">
-          </label>
-          <label>Category
-            <select id="category"><option value="all">All categories</option></select>
-          </label>
-          <label>City
-            <select id="city"><option value="all">All cities</option></select>
-          </label>
-          <button class="clear-button" id="clear" type="button">Clear</button>
-        </form>
+          <form class="filters" id="filters" role="search">
+            <label
+              >Search
+              <input
+                type="search"
+                id="search"
+                placeholder="Cakes, tailoring, pottery…"
+              />
+            </label>
+            <label
+              >Category
+              <select id="category">
+                <option value="all">All categories</option>
+              </select>
+            </label>
+            <label
+              >City
+              <select id="city">
+                <option value="all">All cities</option>
+              </select>
+            </label>
+            <button class="clear-button" id="clear" type="button">Clear</button>
+          </form>
 
-        <div class="business-grid" id="business-grid"></div>
-        <div class="empty-state" id="empty-state" hidden>
-          <h3>No businesses found</h3>
-          <p>Try another search or reset the filters.</p>
-          <button class="button" id="empty-reset" type="button">Show all businesses</button>
+          <div class="business-grid" id="business-grid"></div>
+          <div class="empty-state" id="empty-state" hidden>
+            <h3>No businesses found</h3>
+            <p>Try another search or reset the filters.</p>
+            <button class="button" id="empty-reset" type="button">
+              Show all businesses
+            </button>
+          </div>
         </div>
+      </section>
+
+      <section class="container about" id="about">
+        <h2>Every local story <em>deserves to be found.</em></h2>
+        <p>
+          HerLocal brings local business information into one searchable place.
+          Featured listings and their images are illustrative examples created
+          for academic assessment.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-content">
+        <strong>✳ HerLocal.</strong
+        ><span>Women-led business discovery · © 2026</span>
       </div>
-    </section>
+    </footer>
 
-
-
-    <section class="container about" id="about">
-      <h2>Every local story <em>deserves to be found.</em></h2>
-      <p>HerLocal brings local business information into one searchable place. Featured listings and their images are illustrative examples created for academic assessment.</p>
-    </section>
-  </main>
-
-  <footer><div class="container footer-content"><strong>✳ HerLocal.</strong><span>Women-led business discovery · © 2026</span></div></footer>
-
-  <!-- A native dialog supports keyboard focus and Escape-to-close behavior. -->
-  <dialog id="profile-dialog" aria-labelledby="profile-title">
-    <button class="dialog-close" id="close-dialog" type="button" aria-label="Close profile">×</button>
-    <div id="profile-content"></div>
-    <div class="profile-extras">
-      <section aria-labelledby="inquiry-heading">
-        <h3 id="inquiry-heading">Contact inquiry</h3>
-        <p class="small-note">Your inquiry is saved in this browser only. It is <strong>not delivered</strong> to a business.</p>
-        <form id="inquiry-form" class="form-grid">
-          <label>Display name <input name="name" maxlength="60" required placeholder="Your name"></label>
-          <label>Email (optional) <input name="email" type="email" maxlength="120" placeholder="you@example.com"></label>
-          <label class="full-width">Message <textarea name="message" rows="3" maxlength="600" required placeholder="I'd like to know more about..."></textarea></label>
-          <div class="full-width form-actions"><button class="button" type="submit">Save inquiry</button><span id="inquiry-status" class="status-note" role="status"></span></div>
-        </form>
-      </section>
-      <section aria-labelledby="reviews-heading">
-        <h3 id="reviews-heading">Customer feedback <span class="sample-label">Illustrative reviews</span></h3>
-        <p class="small-note">The initial reviews are illustrative examples, not verified customer experiences.</p>
-        <div id="reviews-list"></div>
-        <form id="review-form" class="form-grid review-form">
-          <label>Display name <input name="name" maxlength="60" required placeholder="Your name"></label>
-          <label>Rating <select name="rating" required><option value="">Choose a rating</option><option value="5">5 — Excellent</option><option value="4">4 — Good</option><option value="3">3 — Average</option><option value="2">2 — Below average</option><option value="1">1 — Poor</option></select></label>
-          <label class="full-width">Review <textarea name="message" rows="3" maxlength="400" required placeholder="Write your feedback"></textarea></label>
-          <div class="full-width form-actions"><button class="button" type="submit">Submit review</button><span id="review-status" class="status-note" role="status"></span></div>
-        </form>
-      </section>
-    </div>
-  </dialog>
-</body>
+    <!-- A native dialog supports keyboard focus and Escape-to-close behavior. -->
+    <dialog id="profile-dialog" aria-labelledby="profile-title">
+      <button
+        class="dialog-close"
+        id="close-dialog"
+        type="button"
+        aria-label="Close profile"
+      >
+        ×
+      </button>
+      <div id="profile-content"></div>
+      <div class="profile-extras">
+        <section aria-labelledby="inquiry-heading">
+          <h3 id="inquiry-heading">Contact inquiry</h3>
+          <p class="small-note">
+            Your inquiry is saved in this browser only. It is
+            <strong>not delivered</strong> to a business.
+          </p>
+          <form id="inquiry-form" class="form-grid">
+            <label
+              >Display name
+              <input
+                name="name"
+                maxlength="60"
+                required
+                placeholder="Your name"
+            /></label>
+            <label
+              >Email (optional)
+              <input
+                name="email"
+                type="email"
+                maxlength="120"
+                placeholder="you@example.com"
+            /></label>
+            <label class="full-width"
+              >Message
+              <textarea
+                name="message"
+                rows="3"
+                maxlength="600"
+                required
+                placeholder="I'd like to know more about..."
+              ></textarea>
+            </label>
+            <div class="full-width form-actions">
+              <button class="button" type="submit">Save inquiry</button
+              ><span
+                id="inquiry-status"
+                class="status-note"
+                role="status"
+              ></span>
+            </div>
+          </form>
+        </section>
+        <section aria-labelledby="reviews-heading">
+          <h3 id="reviews-heading">
+            Customer feedback
+            <span class="sample-label">Illustrative reviews</span>
+          </h3>
+          <p class="small-note">
+            The initial reviews are illustrative examples, not verified customer
+            experiences.
+          </p>
+          <div id="reviews-list"></div>
+          <form id="review-form" class="form-grid review-form">
+            <label
+              >Display name
+              <input
+                name="name"
+                maxlength="60"
+                required
+                placeholder="Your name"
+            /></label>
+            <label
+              >Rating
+              <select name="rating" required>
+                <option value="">Choose a rating</option>
+                <option value="5">5 — Excellent</option>
+                <option value="4">4 — Good</option>
+                <option value="3">3 — Average</option>
+                <option value="2">2 — Below average</option>
+                <option value="1">1 — Poor</option>
+              </select></label
+            >
+            <label class="full-width"
+              >Review
+              <textarea
+                name="message"
+                rows="3"
+                maxlength="400"
+                required
+                placeholder="Write your feedback"
+              ></textarea>
+            </label>
+            <div class="full-width form-actions">
+              <button class="button" type="submit">Submit review</button
+              ><span
+                id="review-status"
+                class="status-note"
+                role="status"
+              ></span>
+            </div>
+          </form>
+        </section>
+      </div>
+    </dialog>
+  </body>
 </html>

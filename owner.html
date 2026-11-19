@@ -1,57 +1,164 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Submit a women-led business profile for review on HerLocal.">
-  <title>List your business | HerLocal</title>
-  <link rel="stylesheet" href="css/style.css">
-  <script src="js/data.js" defer></script>
-  <script src="js/app.js" defer></script>
-</head>
-<body data-page="owner">
-  <header class="site-header">
-    <nav class="container nav" aria-label="Main navigation">
-      <a class="brand" href="index.html">✳ HerLocal<span>.</span></a>
-      <div class="nav-links">
-        <a href="index.html#directory">Explore</a>
-        <a class="is-current" aria-current="page" href="owner.html">List business</a>
-        <a href="admin.html">Review workspace</a>
-      </div>
-    </nav>
-  </header>
-<main>
-    <section class="container page-intro owner-intro" aria-labelledby="owner-page-title">
-      <div class="page-intro-copy">
-        <p class="eyebrow">For women-led local businesses</p>
-        <h1 id="owner-page-title">Your story deserves <em>to be discovered.</em></h1>
-        <p class="intro">Share what you make, where you serve and how people can find you. Every listing is reviewed before it appears in the directory.</p>
-        <a class="text-link" href="#submit">Start your listing ↓</a>
-      </div>
-      <div class="page-intro-photo owner-photo" role="img" aria-label="Illustrative photograph of a small-business owner packing orders"></div>
-    </section>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Submit a women-led business profile for review on HerLocal."
+    />
+    <title>List your business | HerLocal</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/data.js" defer></script>
+    <script src="js/app.js" defer></script>
+  </head>
+  <body data-page="owner">
+    <header class="site-header">
+      <nav class="container nav" aria-label="Main navigation">
+        <a class="brand" href="index.html">✳ HerLocal<span>.</span></a>
+        <div class="nav-links">
+          <a href="index.html#directory">Explore</a>
+          <a class="is-current" aria-current="page" href="owner.html"
+            >List business</a
+          >
+          <a href="admin.html">Review workspace</a>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section
+        class="container page-intro owner-intro"
+        aria-labelledby="owner-page-title"
+      >
+        <div class="page-intro-copy">
+          <p class="eyebrow">For women-led local businesses</p>
+          <h1 id="owner-page-title">
+            Your story deserves <em>to be discovered.</em>
+          </h1>
+          <p class="intro">
+            Share what you make, where you serve and how people can find you.
+            Every listing is reviewed before it appears in the directory.
+          </p>
+          <a class="text-link" href="#submit">Start your listing ↓</a>
+        </div>
+        <div
+          class="page-intro-photo owner-photo"
+          role="img"
+          aria-label="Illustrative photograph of a small-business owner packing orders"
+        ></div>
+      </section>
 
-    <section class="container feature-section" id="submit" aria-labelledby="submit-title">
-      <p class="eyebrow">For local entrepreneurs</p>
-      <h2 id="submit-title">List your <em>business.</em></h2>
-      <p class="section-intro">Add a business profile for review. Approved submissions appear in the directory on this device.</p>
-      <form id="business-form" class="panel form-grid">
-        <label>Business name <input name="name" maxlength="70" required placeholder="Example: Riverside Crafts"></label>
-        <label>Category <select id="submit-category" name="category" required></select></label>
-        <label>City <select id="submit-city" name="city" required></select></label>
-        <label>Locality / service area <input name="area" maxlength="70" required placeholder="Example: Model Town"></label>
-        <label class="full-width">Business description <textarea name="description" maxlength="500" required rows="3" placeholder="What products or services do you offer?"></textarea></label>
-        <label>Primary product or service <input name="offering" maxlength="80" required placeholder="Example: Handmade gift hamper"></label>
-        <label>Starting price in ₹ (optional) <input name="price" type="number" min="0" max="1000000" step="1" placeholder="e.g. 250"></label>
-        <label>Opening hours (optional) <input name="hours" maxlength="80" placeholder="Mon–Sat, 10 AM–6 PM"></label>
-        <label>Availability <select name="availability"><option>Ask for availability</option><option>In stock</option><option>Limited stock</option><option>Made to order</option><option>By appointment</option></select></label>
-        <label class="full-width">Public contact email (optional) <input name="email" type="email" maxlength="120" placeholder="business@example.com"></label>
-        <label class="check-label full-width"><input type="checkbox" required> I will enter sample information only. Submissions are saved in this browser, not shared with other visitors.</label>
-        <div class="full-width form-actions"><button class="button" type="submit">Submit for review</button><p class="status-note" id="submission-status" role="status" aria-live="polite"></p></div>
-      </form>
-    </section>
-
-</main>
-  <footer><div class="container footer-content"><strong>✳ HerLocal.</strong><span>Women-led business discovery · © 2026</span></div></footer>
-</body>
+      <section
+        class="container feature-section"
+        id="submit"
+        aria-labelledby="submit-title"
+      >
+        <p class="eyebrow">For local entrepreneurs</p>
+        <h2 id="submit-title">List your <em>business.</em></h2>
+        <p class="section-intro">
+          Add a business profile for review. Approved submissions appear in the
+          directory on this device.
+        </p>
+        <form id="business-form" class="panel form-grid">
+          <label
+            >Business name
+            <input
+              name="name"
+              maxlength="70"
+              required
+              placeholder="Example: Riverside Crafts"
+          /></label>
+          <label
+            >Category
+            <select id="submit-category" name="category" required></select
+          ></label>
+          <label
+            >City
+            <select id="submit-city" name="city" required></select
+          ></label>
+          <label
+            >Locality / service area
+            <input
+              name="area"
+              maxlength="70"
+              required
+              placeholder="Example: Model Town"
+          /></label>
+          <label class="full-width"
+            >Business description
+            <textarea
+              name="description"
+              maxlength="500"
+              required
+              rows="3"
+              placeholder="What products or services do you offer?"
+            ></textarea>
+          </label>
+          <label
+            >Primary product or service
+            <input
+              name="offering"
+              maxlength="80"
+              required
+              placeholder="Example: Handmade gift hamper"
+          /></label>
+          <label
+            >Starting price in ₹ (optional)
+            <input
+              name="price"
+              type="number"
+              min="0"
+              max="1000000"
+              step="1"
+              placeholder="e.g. 250"
+          /></label>
+          <label
+            >Opening hours (optional)
+            <input
+              name="hours"
+              maxlength="80"
+              placeholder="Mon–Sat, 10 AM–6 PM"
+          /></label>
+          <label
+            >Availability
+            <select name="availability">
+              <option>Ask for availability</option>
+              <option>In stock</option>
+              <option>Limited stock</option>
+              <option>Made to order</option>
+              <option>By appointment</option>
+            </select></label
+          >
+          <label class="full-width"
+            >Public contact email (optional)
+            <input
+              name="email"
+              type="email"
+              maxlength="120"
+              placeholder="business@example.com"
+          /></label>
+          <label class="check-label full-width"
+            ><input type="checkbox" required /> I will enter sample information
+            only. Submissions are saved in this browser, not shared with other
+            visitors.</label
+          >
+          <div class="full-width form-actions">
+            <button class="button" type="submit">Submit for review</button>
+            <p
+              class="status-note"
+              id="submission-status"
+              role="status"
+              aria-live="polite"
+            ></p>
+          </div>
+        </form>
+      </section>
+    </main>
+    <footer>
+      <div class="container footer-content">
+        <strong>✳ HerLocal.</strong
+        ><span>Women-led business discovery · © 2026</span>
+      </div>
+    </footer>
+  </body>
 </html>
